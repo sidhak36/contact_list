@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Contacts list</title>
+        <link rel="stylesheet" href="/css/contact.css">
+    </head>
+
+
+    <body>
+        <div class = "container">
+            <h1>Here's the list of contacts</h1>
+            <% for(let contact of contact_list){ %> 
+                <div class = "contact-container">
+                    <div class = "contact-item">
+                        <p><%= contact.name %></p>
+                        <p><%= contact.number %></p>
+                    </div>
+                    <a href=<%= "/delete-contact?id=" + contact._id %>>
+                        Delete
+                    </a>
+                </div>
+            <% } %>
+
+            <form action="/add-contact" method="POST">
+                <input type="text" name="name" placeholder="Enter name">
+                <input type="number" name="number" placeholder="Enter contact number">
+                <input type="submit" value="Submit contact details">
+            </form>
+        </div>
+        
+
+        <script src="/js/contact.js"></script>
+    </body>
+
+</html>
